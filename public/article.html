@@ -4,134 +4,290 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article — Yogentix</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2d5016;
+            --primary-light: #4a7c23;
+            --accent: #c8a951;
+            --bg: #faf9f6;
+            --text: #2c2c2c;
+            --text-light: #6b6b6b;
+            --border: #e8e4dc;
+            --shadow: 0 2px 20px rgba(0,0,0,0.06);
+            --radius: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 2px solid var(--primary);
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Article Layout */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .article-hero-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .category-yoga { background: #eef5e6; color: #3d6b1e; }
+        .category-herbs { background: #fef3e2; color: #8a6914; }
+        .category-wellness { background: #e8f0fe; color: #1a56b8; }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #3a3a3a;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-light);
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .error-msg {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .error-msg h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .error-msg a {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-logo span { color: var(--accent); }
+        .footer-text { opacity: 0.8; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .article-title { font-size: 1.8rem; }
+            .article-hero-img { height: 250px; }
+            .article-content { font-size: 1rem; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar scrolled" id="navbar">
-        <div class="container nav-container">
-            <a href="/" class="logo">
-                <div class="logo-mark">Y</div>
-                <span class="logo-text">Yogentix</span>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="/#articles" class="nav-link">All Articles</a></li>
-                <li><a href="/#articles" class="nav-link">Yoga</a></li>
-                <li><a href="/#articles" class="nav-link">Herbs</a></li>
-                <li><a href="/#articles" class="nav-link">Wellness</a></li>
-            </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="/" class="logo">Yogen<span>tix</span></a>
+            <a href="/" class="back-btn">← Back to Articles</a>
         </div>
     </nav>
 
-    <!-- ARTICLE CONTENT -->
-    <main class="article-page">
-        <div class="container">
-
-            <div class="article-header" id="articleHeader">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>Loading article...</p>
-                </div>
-            </div>
-
-            <div class="article-hero-image" id="articleImage" style="display:none;">
-                <img id="articleImg" src="" alt="">
-            </div>
-
-            <article class="article-body" id="articleBody">
-            </article>
-
+    <main class="article-container" id="article-container">
+        <div class="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading article...</p>
         </div>
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom" style="border:none; padding: 28px 0;">
-                <p>&copy; 2024 Yogentix. Crafted with 🌿 for a balanced world.</p>
-            </div>
+        <div class="footer-inner">
+            <div class="footer-logo">Yogen<span>tix</span></div>
+            <div class="footer-text">&copy; 2025 Yogentix. All rights reserved.</div>
         </div>
     </footer>
 
     <script>
-        // Get article ID from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const articleId = urlParams.get('id');
+        function formatDate(dateString) {
+            var options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
 
-        async function loadArticle() {
-            if (!articleId) {
-                document.getElementById('articleHeader').innerHTML = '<h2>Article not found</h2><p><a href="/" style="color: #3d7a4a;">← Back to Home</a></p>';
+        function getEmoji(category) {
+            var emojis = { yoga: '🧘', herbs: '🌿', wellness: '✨' };
+            return emojis[category] || '📄';
+        }
+
+        function loadArticle() {
+            var container = document.getElementById('article-container');
+            var params = new URLSearchParams(window.location.search);
+            var id = params.get('id');
+
+            if (!id) {
+                container.innerHTML = '<div class="error-msg"><h2>No article selected</h2><p><a href="/">← Go back to all articles</a></p></div>';
                 return;
             }
 
-            try {
-                const response = await fetch('/api/articles/' + articleId);
-                const article = await response.json();
+            fetch('/api/articles/' + id)
+                .then(function(response) {
+                    if (!response.ok) throw new Error('Article not found');
+                    return response.json();
+                })
+                .then(function(article) {
+                    document.title = article.title + ' — Yogentix';
 
-                if (!article || article.message) {
-                    document.getElementById('articleHeader').innerHTML = '<h2>Article not found</h2><p><a href="/" style="color: #3d7a4a;">← Back to Home</a></p>';
-                    return;
-                }
+                    var imageUrl = article.image || 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=80';
 
-                // Update page title
-                document.title = article.title + ' — Yogentix';
+                    // Convert newlines in content to paragraphs
+                    var paragraphs = article.content.split('\n').filter(function(p) {
+                        return p.trim() !== '';
+                    });
+                    var contentHtml = paragraphs.map(function(p) {
+                        return '<p>' + p.trim() + '</p>';
+                    }).join('');
 
-                // Format date
-                const date = new Date(article.createdAt);
-                const formattedDate = date.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
+                    var html = '';
+                    html += '<img class="article-hero-img" src="' + imageUrl + '" alt="' + article.title + '" onerror="this.src=\'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=80\'">';
+                    html += '<span class="article-category category-' + article.category + '">' + getEmoji(article.category) + ' ' + article.category + '</span>';
+                    html += '<h1 class="article-title">' + article.title + '</h1>';
+                    html += '<div class="article-meta">';
+                    html += '  <span>✍️ ' + (article.author || 'Yogentix Team') + '</span>';
+                    html += '  <span>📅 ' + formatDate(article.createdAt) + '</span>';
+                    html += '</div>';
+                    html += '<div class="article-content">' + contentHtml + '</div>';
+
+                    container.innerHTML = html;
+                })
+                .catch(function(error) {
+                    console.error('Error:', error);
+                    container.innerHTML = '<div class="error-msg"><h2>Article not found</h2><p>This article may have been removed.</p><p><a href="/">← Go back to all articles</a></p></div>';
                 });
-
-                // Build header
-                document.getElementById('articleHeader').innerHTML = ''
-                    + '<a href="/" class="article-back">← Back to Articles</a>'
-                    + '<div class="article-category-badge">' + article.category + '</div>'
-                    + '<h1 class="article-page-title">' + article.title + '</h1>'
-                    + '<div class="article-meta">'
-                    + '  <span>📅 ' + formattedDate + '</span>'
-                    + '  <span>✍️ ' + (article.author || 'Yogentix Team') + '</span>'
-                    + '</div>';
-
-                // Show image
-                if (article.image) {
-                    document.getElementById('articleImg').src = article.image;
-                    document.getElementById('articleImg').alt = article.title;
-                    document.getElementById('articleImage').style.display = 'block';
-                }
-
-                // Show content - convert line breaks to paragraphs
-                var content = article.content;
-                var paragraphs = content.split('\n\n');
-                var htmlContent = '';
-                paragraphs.forEach(function(p) {
-                    if (p.trim()) {
-                        htmlContent += '<p>' + p.trim() + '</p>';
-                    }
-                });
-                document.getElementById('articleBody').innerHTML = htmlContent;
-
-            } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('articleHeader').innerHTML = '<h2>Error loading article</h2><p><a href="/" style="color: #3d7a4a;">← Back to Home</a></p>';
-            }
         }
-
-        // Mobile menu
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('navLinks').classList.toggle('open');
-        });
 
         loadArticle();
     </script>
