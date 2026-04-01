@@ -1,13 +1,17 @@
 {
-  "name": "wellness-blog",
+  "name": "yogentix-blog",
   "version": "1.0.0",
-  "description": "Wellness blog with yoga and herbs",
+  "description": "Yogentix wellness blog — yoga, herbs & natural wellness",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "dev": "node server/server.js"
+    "seed": "node server/seed.js"
   },
-  "author": "",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [],
+  "author": "Yogentix",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

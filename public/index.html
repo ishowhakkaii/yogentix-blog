@@ -3,316 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yogentix — Yoga, Herbs & Natural Wellness</title>
+    <title>Admin Dashboard — Yogentix</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
 </head>
 <body>
 
-    <!-- FLOATING BACKGROUND SHAPES -->
-    <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
-        <div class="shape shape-5"></div>
+    <!-- ============================================ -->
+    <!-- LOGIN PAGE -->
+    <!-- ============================================ -->
+    <div class="login-page" id="loginPage">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="login-logo">
+                        <div class="logo-mark">Y</div>
+                        <span class="logo-text">Yogentix</span>
+                    </div>
+                    <h1 class="login-title">Admin Dashboard</h1>
+                    <p class="login-subtitle">Sign in to manage your articles</p>
+                </div>
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="login-error" id="loginError" style="display:none;">
+                        <span>❌</span> <span id="loginErrorText">Invalid credentials</span>
+                    </div>
+                    <button type="submit" class="login-btn" id="loginBtn">
+                        Sign In
+                    </button>
+                </form>
+                <a href="/" class="back-to-site">← Back to website</a>
+            </div>
+        </div>
     </div>
 
     <!-- ============================================ -->
-    <!-- NAVIGATION BAR -->
+    <!-- DASHBOARD -->
     <!-- ============================================ -->
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="/" class="logo">
-                <div class="logo-mark">Y</div>
-                <span class="logo-text">Yogentix</span>
-            </a>
+    <div class="dashboard" id="dashboard" style="display:none;">
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/" class="nav-link active">Home</a></li>
-                <li><a href="#articles" class="nav-link" data-category="all">All Articles</a></li>
-                <li><a href="#articles" class="nav-link category-link" data-category="yoga">Yoga</a></li>
-                <li><a href="#articles" class="nav-link category-link" data-category="herbs">Herbs</a></li>
-                <li><a href="#articles" class="nav-link category-link" data-category="wellness">Wellness</a></li>
-            </ul>
-
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- ============================================ -->
-    <!-- HERO SECTION -->
-    <!-- ============================================ -->
-    <header class="hero">
-        <div class="hero-bg-layers">
-            <div class="hero-layer hero-layer-1"></div>
-            <div class="hero-layer hero-layer-2"></div>
-            <div class="hero-layer hero-layer-3"></div>
-        </div>
-        <div class="hero-floating-elements">
-            <div class="hero-float hero-float-1">🌿</div>
-            <div class="hero-float hero-float-2">🧘</div>
-            <div class="hero-float hero-float-3">✨</div>
-            <div class="hero-float hero-float-4">🌱</div>
-        </div>
-        <div class="container hero-content">
-            <div class="hero-badge">
-                <span class="hero-badge-dot"></span>
-                Your Journey to Natural Wellness
-            </div>
-            <h1 class="hero-title">
-                Nourish Your <span class="title-highlight">Body</span>,<br>
-                Calm Your <span class="title-highlight">Mind</span>
-            </h1>
-            <p class="hero-description">
-                Explore the ancient wisdom of yoga, healing herbs, and holistic 
-                wellness practices for a balanced and mindful life.
-            </p>
-            <div class="hero-buttons">
-                <a href="#articles" class="hero-btn hero-btn-primary">
-                    Explore Articles
-                    <span class="btn-arrow">→</span>
-                </a>
-                <a href="#categories" class="hero-btn hero-btn-glass">
-                    Browse Topics
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/" class="logo">
+                    <div class="logo-mark">Y</div>
+                    <span class="logo-text">Yogentix</span>
                 </a>
             </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <span class="hero-stat-number" id="articleCount">0</span>
-                    <span class="hero-stat-label">Articles</span>
-                </div>
-                <div class="hero-stat-divider"></div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">3</span>
-                    <span class="hero-stat-label">Categories</span>
-                </div>
-                <div class="hero-stat-divider"></div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">100%</span>
-                    <span class="hero-stat-label">Natural</span>
-                </div>
-            </div>
-        </div>
-        <div class="hero-scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
-            </div>
-            <span>Scroll to explore</span>
-        </div>
-    </header>
-
-    <!-- ============================================ -->
-    <!-- CATEGORIES SECTION -->
-    <!-- ============================================ -->
-    <section class="categories-section" id="categories">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Explore Topics</div>
-                <h2 class="section-title">What Interests You?</h2>
-                <p class="section-subtitle">Discover wisdom across three pillars of natural wellness</p>
-            </div>
-            <div class="categories-grid">
-                <div class="category-card" data-category="yoga">
-                    <div class="category-card-glow"></div>
-                    <div class="category-card-inner">
-                        <div class="category-icon-wrapper">
-                            <div class="category-icon">🧘</div>
-                        </div>
-                        <h3 class="category-title">Yoga</h3>
-                        <p class="category-desc">Poses, flows, breathing techniques & mindful movement for body and soul</p>
-                        <div class="category-link-text">
-                            Explore Yoga <span>→</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="category-card" data-category="herbs">
-                    <div class="category-card-glow"></div>
-                    <div class="category-card-inner">
-                        <div class="category-icon-wrapper">
-                            <div class="category-icon">🌱</div>
-                        </div>
-                        <h3 class="category-title">Herbs</h3>
-                        <p class="category-desc">Nature's most powerful healing remedies, teas, and ancient herbal wisdom</p>
-                        <div class="category-link-text">
-                            Explore Herbs <span>→</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="category-card" data-category="wellness">
-                    <div class="category-card-glow"></div>
-                    <div class="category-card-inner">
-                        <div class="category-icon-wrapper">
-                            <div class="category-icon">✨</div>
-                        </div>
-                        <h3 class="category-title">Wellness</h3>
-                        <p class="category-desc">Holistic health, self-care rituals, mindfulness & balanced living guides</p>
-                        <div class="category-link-text">
-                            Explore Wellness <span>→</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- FEATURED BANNER -->
-    <!-- ============================================ -->
-    <section class="featured-banner">
-        <div class="container">
-            <div class="banner-card">
-                <div class="banner-content">
-                    <div class="section-badge">Why Yogentix?</div>
-                    <h2 class="banner-title">Ancient Wisdom,<br>Modern Living</h2>
-                    <p class="banner-desc">
-                        We bridge the gap between centuries-old natural healing practices 
-                        and today's fast-paced lifestyle. Every article is researched, 
-                        authentic, and designed to help you live better — naturally.
-                    </p>
-                    <div class="banner-features">
-                        <div class="banner-feature">
-                            <div class="feature-check">✓</div>
-                            <span>Evidence-based wellness</span>
-                        </div>
-                        <div class="banner-feature">
-                            <div class="feature-check">✓</div>
-                            <span>Expert-reviewed content</span>
-                        </div>
-                        <div class="banner-feature">
-                            <div class="feature-check">✓</div>
-                            <span>100% natural approach</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="banner-visual">
-                    <div class="banner-circles">
-                        <div class="banner-circle banner-circle-1">🌿</div>
-                        <div class="banner-circle banner-circle-2">🧘</div>
-                        <div class="banner-circle banner-circle-3">🌱</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- ARTICLES SECTION -->
-    <!-- ============================================ -->
-    <section class="articles-section" id="articles">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Latest Insights</div>
-                <h2 class="section-title">Featured Articles</h2>
-                <p class="section-subtitle">Deep dives into yoga, herbs, and holistic wellness</p>
-            </div>
-
-            <!-- Filter Buttons -->
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-category="all">
-                    <span class="filter-icon">◎</span> All
+            <nav class="sidebar-nav">
+                <button class="sidebar-link active" data-section="articles-section" onclick="showSection('articles-section', this)">
+                    <span class="sidebar-icon">📄</span>
+                    All Articles
                 </button>
-                <button class="filter-btn" data-category="yoga">
-                    <span class="filter-icon">🧘</span> Yoga
+                <button class="sidebar-link" data-section="create-section" onclick="showSection('create-section', this)">
+                    <span class="sidebar-icon">✍️</span>
+                    Create Article
                 </button>
-                <button class="filter-btn" data-category="herbs">
-                    <span class="filter-icon">🌱</span> Herbs
-                </button>
-                <button class="filter-btn" data-category="wellness">
-                    <span class="filter-icon">✨</span> Wellness
+            </nav>
+            <div class="sidebar-footer">
+                <a href="/" class="sidebar-link" target="_blank">
+                    <span class="sidebar-icon">🌐</span>
+                    View Website
+                </a>
+                <button class="sidebar-link logout-link" onclick="logout()">
+                    <span class="sidebar-icon">🚪</span>
+                    Logout
                 </button>
             </div>
+        </aside>
 
-            <!-- Articles Grid -->
-            <div class="articles-grid" id="articlesGrid">
-                <!-- Articles loaded by JavaScript -->
-            </div>
+        <!-- Main Content -->
+        <main class="main-content">
 
-            <!-- Loading -->
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                <p>Loading articles...</p>
-            </div>
-
-            <!-- No Articles -->
-            <div class="no-articles" id="noArticles" style="display: none;">
-                <div class="no-articles-icon">🌿</div>
-                <h3>No articles yet</h3>
-                <p>Check back soon for new wellness content!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- NEWSLETTER / CTA SECTION -->
-    <!-- ============================================ -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-card">
-                <div class="cta-glow"></div>
-                <div class="cta-content">
-                    <div class="section-badge">Stay Connected</div>
-                    <h2 class="cta-title">Begin Your Wellness Journey Today</h2>
-                    <p class="cta-desc">
-                        Follow Yogentix for the latest articles on yoga, healing herbs, 
-                        and natural wellness. Your path to a healthier life starts here.
-                    </p>
-                    <a href="#articles" class="hero-btn hero-btn-primary">
-                        Read Our Latest Articles <span class="btn-arrow">→</span>
-                    </a>
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="mobile-sidebar-btn" id="mobileSidebarBtn">☰</button>
+                    <h2 class="page-title" id="pageTitle">All Articles</h2>
                 </div>
-            </div>
-        </div>
-    </section>
+                <div class="topbar-right">
+                    <span class="admin-badge">👤 Admin</span>
+                </div>
+            </header>
 
-    <!-- ============================================ -->
-    <!-- FOOTER -->
-    <!-- ============================================ -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="/" class="logo">
-                        <div class="logo-mark">Y</div>
-                        <span class="logo-text">Yogentix</span>
-                    </a>
-                    <p class="footer-desc">
-                        Your trusted source for yoga, herbal wisdom, 
-                        and natural wellness guidance. Live better, naturally.
-                    </p>
-                    <div class="footer-domain">
-                        🌐 yogentix.com
+            <!-- Articles Section -->
+            <section class="content-section" id="articles-section">
+                <div class="section-top">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">📄</div>
+                            <div class="stat-info">
+                                <span class="stat-number" id="totalArticles">0</span>
+                                <span class="stat-label">Total Articles</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🧘</div>
+                            <div class="stat-info">
+                                <span class="stat-number" id="yogaCount">0</span>
+                                <span class="stat-label">Yoga</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🌱</div>
+                            <div class="stat-info">
+                                <span class="stat-number" id="herbsCount">0</span>
+                                <span class="stat-label">Herbs</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">✨</div>
+                            <div class="stat-info">
+                                <span class="stat-number" id="wellnessCount">0</span>
+                                <span class="stat-label">Wellness</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="footer-links">
-                    <h4>Categories</h4>
-                    <ul>
-                        <li><a href="#articles" class="category-link" data-category="yoga">🧘 Yoga</a></li>
-                        <li><a href="#articles" class="category-link" data-category="herbs">🌱 Herbs</a></li>
-                        <li><a href="#articles" class="category-link" data-category="wellness">✨ Wellness</a></li>
-                    </ul>
+
+                <div class="articles-table-container">
+                    <table class="articles-table" id="articlesTable">
+                        <thead>
+                            <tr>
+                                <th>Article</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="articlesTableBody">
+                            <!-- Articles loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                    <div class="loading" id="adminLoading">
+                        <div class="spinner"></div>
+                        <p>Loading articles...</p>
+                    </div>
+                    <div class="no-data" id="noData" style="display:none;">
+                        <p>📄 No articles yet. Create your first one!</p>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#articles">Articles</a></li>
-                        <li><a href="/admin">Admin</a></li>
-                    </ul>
+            </section>
+
+            <!-- Create / Edit Article Section -->
+            <section class="content-section" id="create-section" style="display:none;">
+                <div class="form-card">
+                    <h3 class="form-card-title" id="formTitle">✍️ Create New Article</h3>
+                    <form id="articleForm">
+                        <input type="hidden" id="editArticleId" value="">
+
+                        <div class="form-group">
+                            <label for="articleTitle">Article Title *</label>
+                            <input type="text" id="articleTitle" placeholder="Enter a compelling title..." required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="articleCategory">Category *</label>
+                                <select id="articleCategory" required>
+                                    <option value="">Select a category</option>
+                                    <option value="yoga">🧘 Yoga</option>
+                                    <option value="herbs">🌱 Herbs</option>
+                                    <option value="wellness">✨ Wellness</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="articleAuthor">Author</label>
+                                <input type="text" id="articleAuthor" placeholder="Yogentix Team" value="Yogentix Team">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="articleImage">Image URL</label>
+                            <input type="text" id="articleImage" placeholder="https://images.unsplash.com/photo-...">
+                            <span class="form-hint">Paste an image URL from Unsplash or any image hosting</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="articleSummary">Summary</label>
+                            <textarea id="articleSummary" rows="3" placeholder="A brief summary that appears on the article card..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="articleContent">Content *</label>
+                            <textarea id="articleContent" rows="15" placeholder="Write your full article content here...&#10;&#10;Use double line breaks to create paragraphs.&#10;&#10;Like this — each section separated by a blank line will become its own paragraph on the website." required></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="resetForm()">Cancel</button>
+                            <button type="submit" class="btn btn-primary" id="submitBtn">
+                                Publish Article
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Yogentix. Crafted with 🌿 for a balanced world.</p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModal" style="display:none;">
+        <div class="modal-card">
+            <div class="modal-icon">⚠️</div>
+            <h3 class="modal-title">Delete Article?</h3>
+            <p class="modal-desc">This action cannot be undone. The article will be permanently removed.</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeDeleteModal()">Cancel</button>
+                <button class="btn btn-danger" id="confirmDeleteBtn" onclick="confirmDelete()">Delete</button>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <script src="/js/main.js"></script>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-icon" id="toastIcon">✅</span>
+        <span class="toast-message" id="toastMessage">Success!</span>
+    </div>
+
+    <script src="/admin/js/admin.js"></script>
 </body>
 </html>

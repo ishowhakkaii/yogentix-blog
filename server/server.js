@@ -4,6 +4,8 @@
 
 const path = require('path');
 const dotenv = require('dotenv');
+
+// Load .env file (only works locally, Railway uses its own env vars)
 dotenv.config({ path: path.join(__dirname, '..', '.env') });
 
 const express = require('express');
@@ -62,6 +64,7 @@ connectDB().then(() => {
         console.log('🌿  Yogentix Server Started!');
         console.log('🌿 ================================');
         console.log('🌐 Running on port: ' + PORT);
+        console.log('🌐 Environment: ' + (process.env.RAILWAY_ENVIRONMENT || 'local'));
         console.log('');
     });
 }).catch((err) => {
