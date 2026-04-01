@@ -3,209 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article — Yogentix</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Article - Yogentix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #2d5016;
-            --primary-light: #4a7c23;
-            --accent: #c8a951;
-            --bg: #faf9f6;
-            --text: #2c2c2c;
-            --text-light: #6b6b6b;
-            --border: #e8e4dc;
-            --shadow: 0 2px 20px rgba(0,0,0,0.06);
-            --radius: 16px;
+            --forest: #1a3a2a;
+            --forest-light: #2d5f3f;
+            --sage: #7c9a6e;
+            --gold: #c9a84c;
+            --cream: #faf8f4;
+            --charcoal: #1e1e1e;
+            --graphite: #3a3a3a;
+            --slate: #6b6b6b;
+            --sand: #e8e0d4;
+            --white: #ffffff;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.8;
+            font-family: 'Outfit', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
         }
 
         /* Navbar */
         .navbar {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            padding: 0 2rem;
+            background: var(--white);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 0 3rem;
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(20px);
         }
 
         .navbar-inner {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            height: 72px;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--forest);
             text-decoration: none;
         }
 
-        .logo span { color: var(--accent); }
+        .logo-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin-left: 1px;
+            vertical-align: super;
+        }
 
-        .back-btn {
+        .back-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             text-decoration: none;
-            color: var(--primary);
+            color: var(--forest);
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            border: 2px solid var(--primary);
-            transition: all 0.3s;
             font-size: 0.9rem;
-        }
-
-        .back-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Article Layout */
-        .article-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .article-hero-img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: var(--radius);
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow);
-        }
-
-        .article-category {
-            display: inline-block;
-            padding: 0.3rem 1rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
+            border: 1.5px solid var(--forest);
+            transition: all 0.3s;
         }
 
-        .category-yoga { background: #eef5e6; color: #3d6b1e; }
-        .category-herbs { background: #fef3e2; color: #8a6914; }
-        .category-wellness { background: #e8f0fe; color: #1a56b8; }
+        .back-link:hover {
+            background: var(--forest);
+            color: var(--white);
+        }
 
-        .article-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+        /* Article */
+        .article-wrapper {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        .article-hero-image {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .article-cat-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.25rem;
         }
 
-        .article-meta {
+        .cat-yoga { background: #e8f0e4; color: #2d5f3f; }
+        .cat-herbs { background: #fdf3e1; color: #8a6914; }
+        .cat-wellness { background: #e4ecf8; color: #304468; }
+
+        .article-page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.15;
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        .article-meta-bar {
             display: flex;
             gap: 1.5rem;
-            color: var(--text-light);
+            color: var(--slate);
             font-size: 0.9rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border);
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--sand);
             flex-wrap: wrap;
+            font-weight: 400;
         }
 
-        .article-content {
+        .article-body {
             font-size: 1.1rem;
-            line-height: 1.9;
-            color: #3a3a3a;
+            line-height: 1.95;
+            color: var(--graphite);
         }
 
-        .article-content p {
-            margin-bottom: 1.5rem;
+        .article-body p {
+            margin-bottom: 1.75rem;
         }
 
-        /* Loading */
+        .article-body p:first-of-type::first-letter {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            float: left;
+            line-height: 1;
+            margin-right: 0.5rem;
+            margin-top: 0.1rem;
+            color: var(--forest);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f1f17;
+            color: rgba(255,255,255,0.6);
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
         .loading {
             text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-light);
+            padding: 5rem 2rem;
+            color: var(--slate);
         }
 
         .loading-spinner {
             width: 40px;
             height: 40px;
-            border: 3px solid var(--border);
-            border-top-color: var(--primary);
+            border: 3px solid var(--sand);
+            border-top-color: var(--forest);
             border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+            animation: spin 0.7s linear infinite;
             margin: 0 auto 1rem;
         }
 
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        .error-msg {
+        .error-state {
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
         }
 
-        .error-msg h2 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1rem;
+        .error-state h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
 
-        .error-msg a {
-            color: var(--primary);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary);
-            color: white;
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .footer-logo span { color: var(--accent); }
-        .footer-text { opacity: 0.8; font-size: 0.9rem; }
+        .error-state a { color: var(--forest); }
 
         @media (max-width: 768px) {
-            .article-title { font-size: 1.8rem; }
-            .article-hero-img { height: 250px; }
-            .article-content { font-size: 1rem; }
-            .footer-inner { flex-direction: column; text-align: center; }
+            .navbar { padding: 0 1.5rem; }
+            .article-page-title { font-size: 2rem; }
+            .article-hero-image { height: 280px; border-radius: 14px; }
+            .article-body { font-size: 1rem; }
         }
     </style>
 </head>
@@ -213,12 +219,12 @@
 
     <nav class="navbar">
         <div class="navbar-inner">
-            <a href="/" class="logo">Yogen<span>tix</span></a>
-            <a href="/" class="back-btn">← Back to Articles</a>
+            <a href="/" class="logo">Yogentix<span class="logo-dot"></span></a>
+            <a href="/" class="back-link">&#8592; Back to Articles</a>
         </div>
     </nav>
 
-    <main class="article-container" id="article-container">
+    <main class="article-wrapper" id="article-container">
         <div class="loading">
             <div class="loading-spinner"></div>
             <p>Loading article...</p>
@@ -226,21 +232,15 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-logo">Yogen<span>tix</span></div>
-            <div class="footer-text">&copy; 2025 Yogentix. All rights reserved.</div>
-        </div>
+        <div class="footer-logo">Yogentix<span style="color:#c9a84c;">.</span></div>
+        <p>2025 Yogentix. All rights reserved.</p>
     </footer>
 
     <script>
-        function formatDate(dateString) {
-            var options = { year: 'numeric', month: 'long', day: 'numeric' };
-            return new Date(dateString).toLocaleDateString('en-US', options);
-        }
-
-        function getEmoji(category) {
-            var emojis = { yoga: '🧘', herbs: '🌿', wellness: '✨' };
-            return emojis[category] || '📄';
+        function formatDate(str) {
+            var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            var d = new Date(str);
+            return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
         }
 
         function loadArticle() {
@@ -249,43 +249,37 @@
             var id = params.get('id');
 
             if (!id) {
-                container.innerHTML = '<div class="error-msg"><h2>No article selected</h2><p><a href="/">← Go back to all articles</a></p></div>';
+                container.innerHTML = '<div class="error-state"><h2>No article selected</h2><p><a href="/">Go back to all articles</a></p></div>';
                 return;
             }
 
             fetch('/api/articles/' + id)
-                .then(function(response) {
-                    if (!response.ok) throw new Error('Article not found');
-                    return response.json();
+                .then(function(r) {
+                    if (!r.ok) throw new Error('Not found');
+                    return r.json();
                 })
                 .then(function(article) {
-                    document.title = article.title + ' — Yogentix';
+                    document.title = article.title + ' - Yogentix';
 
-                    var imageUrl = article.image || 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=80';
+                    var img = article.image || 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80';
 
-                    // Convert newlines in content to paragraphs
-                    var paragraphs = article.content.split('\n').filter(function(p) {
-                        return p.trim() !== '';
-                    });
-                    var contentHtml = paragraphs.map(function(p) {
-                        return '<p>' + p.trim() + '</p>';
-                    }).join('');
+                    var paragraphs = article.content.split('\n').filter(function(p) { return p.trim() !== ''; });
+                    var bodyHtml = paragraphs.map(function(p) { return '<p>' + p.trim() + '</p>'; }).join('');
 
                     var html = '';
-                    html += '<img class="article-hero-img" src="' + imageUrl + '" alt="' + article.title + '" onerror="this.src=\'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=80\'">';
-                    html += '<span class="article-category category-' + article.category + '">' + getEmoji(article.category) + ' ' + article.category + '</span>';
-                    html += '<h1 class="article-title">' + article.title + '</h1>';
-                    html += '<div class="article-meta">';
-                    html += '  <span>✍️ ' + (article.author || 'Yogentix Team') + '</span>';
-                    html += '  <span>📅 ' + formatDate(article.createdAt) + '</span>';
+                    html += '<img class="article-hero-image" src="' + img + '" alt="' + article.title + '">';
+                    html += '<span class="article-cat-badge cat-' + article.category + '">' + article.category + '</span>';
+                    html += '<h1 class="article-page-title">' + article.title + '</h1>';
+                    html += '<div class="article-meta-bar">';
+                    html += '<span>By ' + (article.author || 'Yogentix Team') + '</span>';
+                    html += '<span>' + formatDate(article.createdAt) + '</span>';
                     html += '</div>';
-                    html += '<div class="article-content">' + contentHtml + '</div>';
+                    html += '<div class="article-body">' + bodyHtml + '</div>';
 
                     container.innerHTML = html;
                 })
-                .catch(function(error) {
-                    console.error('Error:', error);
-                    container.innerHTML = '<div class="error-msg"><h2>Article not found</h2><p>This article may have been removed.</p><p><a href="/">← Go back to all articles</a></p></div>';
+                .catch(function(err) {
+                    container.innerHTML = '<div class="error-state"><h2>Article not found</h2><p>It may have been removed or the link is broken.</p><p><a href="/">Go back to all articles</a></p></div>';
                 });
         }
 
