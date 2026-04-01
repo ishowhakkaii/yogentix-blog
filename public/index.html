@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yogentix — Yoga, Herbs & Natural Wellness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- FLOATING BACKGROUND SHAPES -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- NAVIGATION BAR -->
+    <!-- ============================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <div class="logo-mark">Y</div>
+                <span class="logo-text">Yogentix</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/" class="nav-link active">Home</a></li>
+                <li><a href="#articles" class="nav-link" data-category="all">All Articles</a></li>
+                <li><a href="#articles" class="nav-link category-link" data-category="yoga">Yoga</a></li>
+                <li><a href="#articles" class="nav-link category-link" data-category="herbs">Herbs</a></li>
+                <li><a href="#articles" class="nav-link category-link" data-category="wellness">Wellness</a></li>
+            </ul>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================================ -->
+    <header class="hero">
+        <div class="hero-bg-layers">
+            <div class="hero-layer hero-layer-1"></div>
+            <div class="hero-layer hero-layer-2"></div>
+            <div class="hero-layer hero-layer-3"></div>
+        </div>
+        <div class="hero-floating-elements">
+            <div class="hero-float hero-float-1">🌿</div>
+            <div class="hero-float hero-float-2">🧘</div>
+            <div class="hero-float hero-float-3">✨</div>
+            <div class="hero-float hero-float-4">🌱</div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                Your Journey to Natural Wellness
+            </div>
+            <h1 class="hero-title">
+                Nourish Your <span class="title-highlight">Body</span>,<br>
+                Calm Your <span class="title-highlight">Mind</span>
+            </h1>
+            <p class="hero-description">
+                Explore the ancient wisdom of yoga, healing herbs, and holistic 
+                wellness practices for a balanced and mindful life.
+            </p>
+            <div class="hero-buttons">
+                <a href="#articles" class="hero-btn hero-btn-primary">
+                    Explore Articles
+                    <span class="btn-arrow">→</span>
+                </a>
+                <a href="#categories" class="hero-btn hero-btn-glass">
+                    Browse Topics
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number" id="articleCount">0</span>
+                    <span class="hero-stat-label">Articles</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">3</span>
+                    <span class="hero-stat-label">Categories</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">100%</span>
+                    <span class="hero-stat-label">Natural</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- CATEGORIES SECTION -->
+    <!-- ============================================ -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Explore Topics</div>
+                <h2 class="section-title">What Interests You?</h2>
+                <p class="section-subtitle">Discover wisdom across three pillars of natural wellness</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" data-category="yoga">
+                    <div class="category-card-glow"></div>
+                    <div class="category-card-inner">
+                        <div class="category-icon-wrapper">
+                            <div class="category-icon">🧘</div>
+                        </div>
+                        <h3 class="category-title">Yoga</h3>
+                        <p class="category-desc">Poses, flows, breathing techniques & mindful movement for body and soul</p>
+                        <div class="category-link-text">
+                            Explore Yoga <span>→</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-card" data-category="herbs">
+                    <div class="category-card-glow"></div>
+                    <div class="category-card-inner">
+                        <div class="category-icon-wrapper">
+                            <div class="category-icon">🌱</div>
+                        </div>
+                        <h3 class="category-title">Herbs</h3>
+                        <p class="category-desc">Nature's most powerful healing remedies, teas, and ancient herbal wisdom</p>
+                        <div class="category-link-text">
+                            Explore Herbs <span>→</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-card" data-category="wellness">
+                    <div class="category-card-glow"></div>
+                    <div class="category-card-inner">
+                        <div class="category-icon-wrapper">
+                            <div class="category-icon">✨</div>
+                        </div>
+                        <h3 class="category-title">Wellness</h3>
+                        <p class="category-desc">Holistic health, self-care rituals, mindfulness & balanced living guides</p>
+                        <div class="category-link-text">
+                            Explore Wellness <span>→</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FEATURED BANNER -->
+    <!-- ============================================ -->
+    <section class="featured-banner">
+        <div class="container">
+            <div class="banner-card">
+                <div class="banner-content">
+                    <div class="section-badge">Why Yogentix?</div>
+                    <h2 class="banner-title">Ancient Wisdom,<br>Modern Living</h2>
+                    <p class="banner-desc">
+                        We bridge the gap between centuries-old natural healing practices 
+                        and today's fast-paced lifestyle. Every article is researched, 
+                        authentic, and designed to help you live better — naturally.
+                    </p>
+                    <div class="banner-features">
+                        <div class="banner-feature">
+                            <div class="feature-check">✓</div>
+                            <span>Evidence-based wellness</span>
+                        </div>
+                        <div class="banner-feature">
+                            <div class="feature-check">✓</div>
+                            <span>Expert-reviewed content</span>
+                        </div>
+                        <div class="banner-feature">
+                            <div class="feature-check">✓</div>
+                            <span>100% natural approach</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner-visual">
+                    <div class="banner-circles">
+                        <div class="banner-circle banner-circle-1">🌿</div>
+                        <div class="banner-circle banner-circle-2">🧘</div>
+                        <div class="banner-circle banner-circle-3">🌱</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ARTICLES SECTION -->
+    <!-- ============================================ -->
+    <section class="articles-section" id="articles">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Latest Insights</div>
+                <h2 class="section-title">Featured Articles</h2>
+                <p class="section-subtitle">Deep dives into yoga, herbs, and holistic wellness</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">
+                    <span class="filter-icon">◎</span> All
+                </button>
+                <button class="filter-btn" data-category="yoga">
+                    <span class="filter-icon">🧘</span> Yoga
+                </button>
+                <button class="filter-btn" data-category="herbs">
+                    <span class="filter-icon">🌱</span> Herbs
+                </button>
+                <button class="filter-btn" data-category="wellness">
+                    <span class="filter-icon">✨</span> Wellness
+                </button>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="articles-grid" id="articlesGrid">
+                <!-- Articles loaded by JavaScript -->
+            </div>
+
+            <!-- Loading -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Loading articles...</p>
+            </div>
+
+            <!-- No Articles -->
+            <div class="no-articles" id="noArticles" style="display: none;">
+                <div class="no-articles-icon">🌿</div>
+                <h3>No articles yet</h3>
+                <p>Check back soon for new wellness content!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- NEWSLETTER / CTA SECTION -->
+    <!-- ============================================ -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-glow"></div>
+                <div class="cta-content">
+                    <div class="section-badge">Stay Connected</div>
+                    <h2 class="cta-title">Begin Your Wellness Journey Today</h2>
+                    <p class="cta-desc">
+                        Follow Yogentix for the latest articles on yoga, healing herbs, 
+                        and natural wellness. Your path to a healthier life starts here.
+                    </p>
+                    <a href="#articles" class="hero-btn hero-btn-primary">
+                        Read Our Latest Articles <span class="btn-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <div class="logo-mark">Y</div>
+                        <span class="logo-text">Yogentix</span>
+                    </a>
+                    <p class="footer-desc">
+                        Your trusted source for yoga, herbal wisdom, 
+                        and natural wellness guidance. Live better, naturally.
+                    </p>
+                    <div class="footer-domain">
+                        🌐 yogentix.com
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#articles" class="category-link" data-category="yoga">🧘 Yoga</a></li>
+                        <li><a href="#articles" class="category-link" data-category="herbs">🌱 Herbs</a></li>
+                        <li><a href="#articles" class="category-link" data-category="wellness">✨ Wellness</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#articles">Articles</a></li>
+                        <li><a href="/admin">Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Yogentix. Crafted with 🌿 for a balanced world.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
