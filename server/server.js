@@ -4,6 +4,8 @@
 
 const path = require('path');
 const dotenv = require('dotenv');
+
+// Load .env for local development
 dotenv.config({ path: path.join(__dirname, '..', '.env') });
 
 const express = require('express');
@@ -21,14 +23,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
-// ============================================
-// HEALTH CHECK
-// ============================================
-app.get('/health', (req, res) => {
-    res.status(200).json({ status: 'ok' });
-});
+// Serve static files from 'public' and 'uploads'
+app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 // ============================================
 // API ROUTES
@@ -37,51 +35,25 @@ app.use('/api/articles', articleRoutes);
 app.use('/api/auth', authRoutes);
 
 // ============================================
-// SERVE FRONTEND PAGES (explicit routes FIRST)
+// SERVE FRONTEND PAGES
 // ============================================
-
-// Admin page
 app.get('/admin', (req, res) => {
-    console.log('📍 Admin page requested');
-    const adminPath = path.join(__dirname, '..', 'public', 'admin', 'index.html');
-    console.log('📍 Looking for:', adminPath);
-    res.sendFile(adminPath, (err) => {
-        if (err) {
-            console.error('❌ Admin file error:', err.message);
-            res.status(404).send('Admin page not found. File: ' + adminPath);
-        }
-    });
+    res.sendFile(path.join(__dirname, '..', 'public', 'admin', 'index.html'));
 });
 
-// Article page
 app.get('/article.html', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'article.html'));
 });
 
-app.get('/article', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'article.html'));
-});
-
-// Static files (CSS, JS, images)
-app.use(express.static(path.join(__dirname, '..', 'public')));
-
-// Homepage (catch-all - MUST be last)
+// Homepage (catch-all - must be LAST)
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'public', 'index.html')); // <<< CORRECTED LINE!
 });
 
 // ============================================
 // START SERVER
 // ============================================
 const PORT = process.env.PORT || 5000;
-
-console.log('');
-console.log('🔍 Environment Check:');
-console.log('   PORT:', PORT);
-console.log('   MONGO_URI:', process.env.MONGO_URI ? 'Set ✅' : 'MISSING ❌');
-console.log('   JWT_SECRET:', process.env.JWT_SECRET ? 'Set ✅' : 'MISSING ❌');
-console.log('   Admin HTML path:', path.join(__dirname, '..', 'public', 'admin', 'index.html'));
-console.log('');
 
 connectDB().then(() => {
     app.listen(PORT, '0.0.0.0', () => {
